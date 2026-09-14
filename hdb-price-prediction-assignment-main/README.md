@@ -24,3 +24,20 @@ src/data.py         split, fit preprocessing, tensor conversion
 src/model.py        categorical embeddings and MLP
 src/baseline.py     single-run training, RMSE evaluation, and model export
 ```
+
+
+## In NTU CCDS GPU CLUSTER
+
+1. run 
+```bash
+module load uv
+uv sync
+```
+
+2. run each job sequentially, ensuring one job has succeeded before running the next
+```bash
+sbatch run_a1.sh
+sbatch run_a2.sh 
+sbatch run_a3.sh 
+sbatch run_a4.sh 
+```

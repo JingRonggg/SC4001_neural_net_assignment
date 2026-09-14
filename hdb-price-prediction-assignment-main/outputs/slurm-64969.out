@@ -1,0 +1,689 @@
+============================================================
+A1: Baseline Model Info
+============================================================
+Default baseline trainable parameters: 3,505
+Cardinalities (incl. unseen): [13, 27, 44, 18]
+Embedding dims: (8, 8, 8, 8)
+Input width: 38
+Hidden width: 64
+
+Model architecture:
+PriceModel(
+  (embeddings): ModuleList(
+    (0): Embedding(13, 8)
+    (1): Embedding(27, 8)
+    (2): Embedding(44, 8)
+    (3): Embedding(18, 8)
+  )
+  (mlp): Sequential(
+    (0): Linear(in_features=38, out_features=64, bias=True)
+    (1): LayerNorm((64,), eps=1e-05, elementwise_affine=True, bias=True)
+    (2): ReLU()
+    (3): Linear(in_features=64, out_features=1, bias=True)
+  )
+)
+
+============================================================
+A1: Running Ray Tune Grid Search
+============================================================
+╭──────────────────────────────────────────────────────────────────────╮
+│ Configuration for experiment     ray_trainable_2026-09-14_22-50-32   │
+├──────────────────────────────────────────────────────────────────────┤
+│ Search algorithm                 BasicVariantGenerator               │
+│ Scheduler                        FIFOScheduler                       │
+│ Number of trials                 25                                  │
+╰──────────────────────────────────────────────────────────────────────╯
+
+View detailed results here: /tc1home/UG/limj0279/ray_results/ray_trainable_2026-09-14_22-50-32
+To visualize your results with TensorBoard, run: `tensorboard --logdir /tmp/ray/session_2026-09-14_22-50-32_401944_2461850/artifacts/2026-09-14_22-50-40/ray_trainable_2026-09-14_22-50-32/driver_artifacts`
+
+Trial status: 25 PENDING
+Current time: 2026-09-14 22:50:40. Total running time: 0s
+Logical resource usage: 25.0/72 CPUs, 0/1 GPUs (0.0/1.0 accelerator_type:V100)
+╭─────────────────────────────────────────────────────────────────────────╮
+│ Trial name                  status       hidden_width     embedding_dim │
+├─────────────────────────────────────────────────────────────────────────┤
+│ ray_trainable_a740c_00000   PENDING                16                 2 │
+│ ray_trainable_a740c_00001   PENDING                16                 4 │
+│ ray_trainable_a740c_00002   PENDING                16                 8 │
+│ ray_trainable_a740c_00003   PENDING                16                12 │
+│ ray_trainable_a740c_00004   PENDING                16                16 │
+╰─────────────────────────────────────────────────────────────────────────╯
+20 more PENDING
+
+Trial ray_trainable_a740c_00004 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00004 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                16 │
+│ hidden_width                                                 16 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00013 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00013 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                12 │
+│ hidden_width                                                 64 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00015 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00015 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 2 │
+│ hidden_width                                                128 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00010 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00010 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 2 │
+│ hidden_width                                                 64 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00018 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00018 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                12 │
+│ hidden_width                                                128 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00002 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00002 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 8 │
+│ hidden_width                                                 16 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00006 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00006 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 4 │
+│ hidden_width                                                 32 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00011 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00011 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 4 │
+│ hidden_width                                                 64 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00003 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00003 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                12 │
+│ hidden_width                                                 16 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00008 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00008 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                12 │
+│ hidden_width                                                 32 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00007 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00007 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 8 │
+│ hidden_width                                                 32 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00001 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00001 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 4 │
+│ hidden_width                                                 16 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00000 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00000 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 2 │
+│ hidden_width                                                 16 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00014 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00014 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                16 │
+│ hidden_width                                                 64 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00016 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00016 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 4 │
+│ hidden_width                                                128 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00009 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00009 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                16 │
+│ hidden_width                                                 32 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00019 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00019 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                16 │
+│ hidden_width                                                128 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00012 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00012 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 8 │
+│ hidden_width                                                 64 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00005 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00005 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 2 │
+│ hidden_width                                                 32 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00020 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00020 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 2 │
+│ hidden_width                                                256 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00022 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00022 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 8 │
+│ hidden_width                                                256 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00017 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00017 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 8 │
+│ hidden_width                                                128 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00023 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00023 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                12 │
+│ hidden_width                                                256 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00021 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00021 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                 4 │
+│ hidden_width                                                256 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00024 started with configuration:
+╭─────────────────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00024 config                          │
+├─────────────────────────────────────────────────────────────────┤
+│ csv_path                                   ...ce_prediction.csv │
+│ embedding_dim                                                16 │
+│ hidden_width                                                256 │
+╰─────────────────────────────────────────────────────────────────╯
+
+Trial status: 25 RUNNING
+Current time: 2026-09-14 22:51:10. Total running time: 30s
+Logical resource usage: 25.0/72 CPUs, 0/1 GPUs (0.0/1.0 accelerator_type:V100)
+╭─────────────────────────────────────────────────────────────────────────╮
+│ Trial name                  status       hidden_width     embedding_dim │
+├─────────────────────────────────────────────────────────────────────────┤
+│ ray_trainable_a740c_00000   RUNNING                16                 2 │
+│ ray_trainable_a740c_00001   RUNNING                16                 4 │
+│ ray_trainable_a740c_00002   RUNNING                16                 8 │
+│ ray_trainable_a740c_00003   RUNNING                16                12 │
+│ ray_trainable_a740c_00004   RUNNING                16                16 │
+╰─────────────────────────────────────────────────────────────────────────╯
+20 more RUNNING
+
+Trial ray_trainable_a740c_00011 completed after 1 iterations at 2026-09-14 22:51:10. Total running time: 30s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00011 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           23.8211 │
+│ time_total_s                               23.8211 │
+│ training_iteration                               1 │
+│ best_epoch                                       2 │
+│ best_val_rmse                              64633.8 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00012 completed after 1 iterations at 2026-09-14 22:51:13. Total running time: 33s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00012 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           26.8296 │
+│ time_total_s                               26.8296 │
+│ training_iteration                               1 │
+│ best_epoch                                       4 │
+│ best_val_rmse                              63145.2 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00002 completed after 1 iterations at 2026-09-14 22:51:14. Total running time: 33s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00002 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           27.2581 │
+│ time_total_s                               27.2581 │
+│ training_iteration                               1 │
+│ best_epoch                                       4 │
+│ best_val_rmse                                67520 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00016 completed after 1 iterations at 2026-09-14 22:51:14. Total running time: 34s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00016 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           28.0783 │
+│ time_total_s                               28.0783 │
+│ training_iteration                               1 │
+│ best_epoch                                       4 │
+│ best_val_rmse                              61758.3 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00019 completed after 1 iterations at 2026-09-14 22:51:15. Total running time: 35s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00019 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           28.9997 │
+│ time_total_s                               28.9997 │
+│ training_iteration                               1 │
+│ best_epoch                                       1 │
+│ best_val_rmse                              65641.8 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00008 completed after 1 iterations at 2026-09-14 22:51:16. Total running time: 36s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00008 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                            29.576 │
+│ time_total_s                                29.576 │
+│ training_iteration                               1 │
+│ best_epoch                                       5 │
+│ best_val_rmse                              62953.1 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00000 completed after 1 iterations at 2026-09-14 22:51:16. Total running time: 36s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00000 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                             29.68 │
+│ time_total_s                                 29.68 │
+│ training_iteration                               1 │
+│ best_epoch                                       5 │
+│ best_val_rmse                              66425.6 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00001 completed after 1 iterations at 2026-09-14 22:51:16. Total running time: 36s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00001 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           30.1257 │
+│ time_total_s                               30.1257 │
+│ training_iteration                               1 │
+│ best_epoch                                       2 │
+│ best_val_rmse                              68879.5 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00014 completed after 1 iterations at 2026-09-14 22:51:16. Total running time: 36s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00014 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           30.1431 │
+│ time_total_s                               30.1431 │
+│ training_iteration                               1 │
+│ best_epoch                                       5 │
+│ best_val_rmse                              62885.2 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00015 completed after 1 iterations at 2026-09-14 22:51:17. Total running time: 37s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00015 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           30.6767 │
+│ time_total_s                               30.6767 │
+│ training_iteration                               1 │
+│ best_epoch                                       1 │
+│ best_val_rmse                              66308.5 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00017 completed after 1 iterations at 2026-09-14 22:51:18. Total running time: 38s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00017 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                             31.27 │
+│ time_total_s                                 31.27 │
+│ training_iteration                               1 │
+│ best_epoch                                       3 │
+│ best_val_rmse                              67248.3 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00005 completed after 1 iterations at 2026-09-14 22:51:18. Total running time: 38s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00005 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           31.4871 │
+│ time_total_s                               31.4871 │
+│ training_iteration                               1 │
+│ best_epoch                                       2 │
+│ best_val_rmse                                69204 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00007 completed after 1 iterations at 2026-09-14 22:51:18. Total running time: 38s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00007 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           31.7944 │
+│ time_total_s                               31.7944 │
+│ training_iteration                               1 │
+│ best_epoch                                       4 │
+│ best_val_rmse                              66062.2 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00004 completed after 1 iterations at 2026-09-14 22:51:19. Total running time: 39s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00004 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           32.7169 │
+│ time_total_s                               32.7169 │
+│ training_iteration                               1 │
+│ best_epoch                                       6 │
+│ best_val_rmse                                67377 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00010 completed after 1 iterations at 2026-09-14 22:51:20. Total running time: 39s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00010 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           33.2805 │
+│ time_total_s                               33.2805 │
+│ training_iteration                               1 │
+│ best_epoch                                       7 │
+│ best_val_rmse                              63822.9 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00022 completed after 1 iterations at 2026-09-14 22:51:20. Total running time: 40s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00022 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           33.4882 │
+│ time_total_s                               33.4882 │
+│ training_iteration                               1 │
+│ best_epoch                                       4 │
+│ best_val_rmse                              63346.1 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00003 completed after 1 iterations at 2026-09-14 22:51:20. Total running time: 40s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00003 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           33.8212 │
+│ time_total_s                               33.8212 │
+│ training_iteration                               1 │
+│ best_epoch                                       7 │
+│ best_val_rmse                              63026.4 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00021 completed after 1 iterations at 2026-09-14 22:51:21. Total running time: 40s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00021 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           33.8859 │
+│ time_total_s                               33.8859 │
+│ training_iteration                               1 │
+│ best_epoch                                       3 │
+│ best_val_rmse                              60782.4 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00006 completed after 1 iterations at 2026-09-14 22:51:21. Total running time: 40s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00006 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           34.2299 │
+│ time_total_s                               34.2299 │
+│ training_iteration                               1 │
+│ best_epoch                                       4 │
+│ best_val_rmse                              63023.6 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00024 completed after 1 iterations at 2026-09-14 22:51:22. Total running time: 42s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00024 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           35.3295 │
+│ time_total_s                               35.3295 │
+│ training_iteration                               1 │
+│ best_epoch                                       5 │
+│ best_val_rmse                              63371.8 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00023 completed after 1 iterations at 2026-09-14 22:51:25. Total running time: 45s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00023 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           38.7204 │
+│ time_total_s                               38.7204 │
+│ training_iteration                               1 │
+│ best_epoch                                       7 │
+│ best_val_rmse                              65616.5 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00020 completed after 1 iterations at 2026-09-14 22:51:25. Total running time: 45s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00020 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           39.0849 │
+│ time_total_s                               39.0849 │
+│ training_iteration                               1 │
+│ best_epoch                                      10 │
+│ best_val_rmse                                60222 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00013 completed after 1 iterations at 2026-09-14 22:51:27. Total running time: 47s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00013 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           40.6882 │
+│ time_total_s                               40.6882 │
+│ training_iteration                               1 │
+│ best_epoch                                      10 │
+│ best_val_rmse                              64159.9 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00009 completed after 1 iterations at 2026-09-14 22:51:27. Total running time: 47s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00009 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           41.0626 │
+│ time_total_s                               41.0626 │
+│ training_iteration                               1 │
+│ best_epoch                                       9 │
+│ best_val_rmse                              63768.4 │
+╰────────────────────────────────────────────────────╯
+
+Trial ray_trainable_a740c_00018 completed after 1 iterations at 2026-09-14 22:51:28. Total running time: 48s
+╭────────────────────────────────────────────────────╮
+│ Trial ray_trainable_a740c_00018 result             │
+├────────────────────────────────────────────────────┤
+│ checkpoint_dir_name                                │
+│ time_this_iter_s                           41.7181 │
+│ time_total_s                               41.7181 │
+│ training_iteration                               1 │
+│ best_epoch                                      13 │
+│ best_val_rmse                              60379.4 │
+╰────────────────────────────────────────────────────╯
+
+Trial status: 25 TERMINATED
+Current time: 2026-09-14 22:51:28. Total running time: 48s
+Logical resource usage: 1.0/72 CPUs, 0/1 GPUs (0.0/1.0 accelerator_type:V100)
+Current best trial: a740c_00020 with best_val_rmse=60221.9609375 and params={'hidden_width': 256, 'embedding_dim': 2, 'csv_path': '/tc1home/UG/limj0279/sc4001/hdb-price-prediction-assignment-main/hdb_price_prediction.csv'}
+╭────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Trial name                  status         hidden_width     embedding_dim     iter     total time (s)     best_val_rmse     best_epoch │
+├────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ ray_trainable_a740c_00000   TERMINATED               16                 2        1            29.68             66425.6              5 │
+│ ray_trainable_a740c_00001   TERMINATED               16                 4        1            30.1257           68879.5              2 │
+│ ray_trainable_a740c_00002   TERMINATED               16                 8        1            27.2581           67520                4 │
+│ ray_trainable_a740c_00003   TERMINATED               16                12        1            33.8213           63026.4              7 │
+│ ray_trainable_a740c_00004   TERMINATED               16                16        1            32.7168           67377                6 │
+│ ray_trainable_a740c_00005   TERMINATED               32                 2        1            31.4871           69204                2 │
+│ ray_trainable_a740c_00006   TERMINATED               32                 4        1            34.2299           63023.6              4 │
+│ ray_trainable_a740c_00007   TERMINATED               32                 8        1            31.7944           66062.2              4 │
+│ ray_trainable_a740c_00008   TERMINATED               32                12        1            29.576            62953.1              5 │
+│ ray_trainable_a740c_00009   TERMINATED               32                16        1            41.0626           63768.4              9 │
+│ ray_trainable_a740c_00010   TERMINATED               64                 2        1            33.2805           63822.9              7 │
+│ ray_trainable_a740c_00011   TERMINATED               64                 4        1            23.8211           64633.8              2 │
+│ ray_trainable_a740c_00012   TERMINATED               64                 8        1            26.8296           63145.2              4 │
+│ ray_trainable_a740c_00013   TERMINATED               64                12        1            40.6882           64159.9             10 │
+│ ray_trainable_a740c_00014   TERMINATED               64                16        1            30.1431           62885.2              5 │
+│ ray_trainable_a740c_00015   TERMINATED              128                 2        1            30.6767           66308.5              1 │
+│ ray_trainable_a740c_00016   TERMINATED              128                 4        1            28.0783           61758.3              4 │
+│ ray_trainable_a740c_00017   TERMINATED              128                 8        1            31.27             67248.3              3 │
+│ ray_trainable_a740c_00018   TERMINATED              128                12        1            41.7181           60379.4             13 │
+│ ray_trainable_a740c_00019   TERMINATED              128                16        1            28.9997           65641.8              1 │
+│ ray_trainable_a740c_00020   TERMINATED              256                 2        1            39.0849           60222               10 │
+│ ray_trainable_a740c_00021   TERMINATED              256                 4        1            33.8859           60782.4              3 │
+│ ray_trainable_a740c_00022   TERMINATED              256                 8        1            33.4882           63346.1              4 │
+│ ray_trainable_a740c_00023   TERMINATED              256                12        1            38.7204           65616.5              7 │
+│ ray_trainable_a740c_00024   TERMINATED              256                16        1            35.3295           63371.8              5 │
+╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+
+
+======================================================================
+Grid Search Results (sorted by best validation RMSE)
+======================================================================
+  hidden_width  embedding_dim  best_val_RMSE   best_epoch
+----------------------------------------------------------------------
+           256              2         60,222           10 <-- best
+           128             12         60,379           13
+           256              4         60,782            3
+           128              4         61,758            4
+            64             16         62,885            5
+            32             12         62,953            5
+            32              4         63,024            4
+            16             12         63,026            7
+            64              8         63,145            4
+           256              8         63,346            4
+           256             16         63,372            5
+            32             16         63,768            9
+            64              2         63,823            7
+            64             12         64,160           10
+            64              4         64,634            2
+           256             12         65,617            7
+           128             16         65,642            1
+            32              8         66,062            4
+           128              2         66,308            1
+            16              2         66,426            5
+           128              8         67,248            3
+            16             16         67,377            6
+            16              8         67,520            4
+            16              4         68,880            2
+            32              2         69,204            2
+
+Optimal: hidden_width=256, embedding_dim=2
+Best validation RMSE: 60,222
+
+============================================================
+A1: Retraining Best Config (train/val split, for curves)
+============================================================
+Saved outputs/A1/a1_train_val_rmse.png
+
+Selected model trainable parameters: 4,813
+
+============================================================
+A1: Retrain on Combined Data
+============================================================
+
+Selected model trainable parameters: 4,813
+
+--- Retrained on combined train+val ---
+Best epoch: 6
+Test RMSE:  94,210.04 SGD
+Test R^2:   0.6938
+Saved outputs/A1/a1_train_test_rmse.png
+Saved best config to outputs/A1/best_config.json
+
+============================================================
+A1 Summary
+============================================================
+Optimal hidden_width:  256
+Optimal embedding_dim: 2
+Best epoch (retrain):  6
+Final test RMSE:       94,210.04 SGD
+Final test R^2:        0.6938

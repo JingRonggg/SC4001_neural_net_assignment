@@ -1,0 +1,36 @@
+============================================================
+A4: Feature Ablation (Captum)
+============================================================
+Seed: 42
+Config: hidden_width=256, embedding_dim=2
+
+Training baseline model...
+Loaded optimal lambda=1 from A3
+
+Training wide-and-deep model (lambda=1)...
+
+Computing feature importance for baseline...
+
+Computing feature importance for wide-and-deep...
+
+======================================================================
+Feature Importance (Mean |Attribution| in SGD)
+======================================================================
+Feature                       Baseline  Wide-and-Deep
+-------------------------------------------------------
+month                          106,350         15,471
+town                            62,306         72,539
+flat_model_type                 24,998         16,047
+storey_range                    30,803         24,598
+dist_to_nearest_stn             21,978         23,691
+dist_to_dhoby                   42,188         43,001
+degree_centrality                4,581          4,940
+eigenvector_centrality           9,228          7,852
+remaining_lease_years           49,027         52,551
+floor_area_sqm                  80,492         94,956
+
+Baseline top 3:       ['month', 'floor_area_sqm', 'town']
+Wide-and-Deep top 3:  ['floor_area_sqm', 'town', 'remaining_lease_years']
+Saved outputs/A4/a4_importance_baseline.png
+Saved outputs/A4/a4_importance_wide_and_deep.png
+Saved outputs/A4/a4_comparison.png

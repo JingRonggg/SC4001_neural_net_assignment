@@ -1,0 +1,5 @@
+{
+  "hidden_width": 256,
+  "embedding_dim": 2,
+  "best_epoch": 6
+}

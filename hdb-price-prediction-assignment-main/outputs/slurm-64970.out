@@ -1,0 +1,41 @@
+============================================================
+A2: Ablation Experiments
+============================================================
+Using A1 config: hidden_width=256, embedding_dim=2
+Seeds: [42, 123, 456, 789, 2024]
+
+Baseline params:     4,813
+No-cat params:       2,561
+Sigmoid params:      4,813
+
+--- Baseline ---
+  Baseline seed=42: RMSE=94,210.04, R^2=0.6938
+  Baseline seed=123: RMSE=96,556.23, R^2=0.6784
+  Baseline seed=456: RMSE=98,742.52, R^2=0.6637
+  Baseline seed=789: RMSE=94,458.62, R^2=0.6922
+  Baseline seed=2024: RMSE=92,986.04, R^2=0.7017
+
+--- Ablation (a): No Categorical Embeddings ---
+  NoCat seed=42: RMSE=98,929.00, R^2=0.6624
+  NoCat seed=123: RMSE=94,387.20, R^2=0.6927
+  NoCat seed=456: RMSE=101,984.48, R^2=0.6412
+  NoCat seed=789: RMSE=103,581.03, R^2=0.6299
+  NoCat seed=2024: RMSE=102,653.19, R^2=0.6365
+
+--- Ablation (b): Sigmoid Activation ---
+  Sigmoid seed=42: RMSE=93,456.49, R^2=0.6987
+  Sigmoid seed=123: RMSE=86,774.44, R^2=0.7402
+  Sigmoid seed=456: RMSE=100,706.84, R^2=0.6501
+  Sigmoid seed=789: RMSE=92,143.16, R^2=0.7071
+  Sigmoid seed=2024: RMSE=96,345.32, R^2=0.6798
+
+======================================================================
+A2 Results Summary
+======================================================================
+Model                   RMSE (mean +/- std)     R^2 (mean +/- std)
+----------------------------------------------------------------------
+Baseline              95,390.69 +/- 2,271.47     0.6860 +/- 0.0150  
+No Embeddings        100,306.98 +/- 3,741.02     0.6525 +/- 0.0255  
+Sigmoid               93,885.25 +/- 5,156.75     0.6952 +/- 0.0334  
+Saved outputs/A2/a2_rmse_curves.png
+Saved outputs/A2/a2_bar_comparison.png

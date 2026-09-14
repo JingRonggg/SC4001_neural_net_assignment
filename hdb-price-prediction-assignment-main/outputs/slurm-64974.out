@@ -1,0 +1,42 @@
+============================================================
+A3: Wide-and-Deep Architecture
+============================================================
+Using A1 config: hidden_width=256, embedding_dim=2
+Baseline params:        4,813
+Wide-and-Deep params:   4,828
+
+--- Lambda Search (train/val split) ---
+  lambda   best_epoch     val_RMSE
+----------------------------------------
+    0.00            6       61,172 <-- best
+    0.25            6       62,316
+    0.50            6       63,404
+    1.00            6       59,486 <-- best
+    2.00            5       61,355
+
+Optimal lambda: 1
+Saved outputs/A3/a3_lambda_search.png
+
+--- Multi-seed evaluation (lambda=1) ---
+  seed=42: RMSE=101,653.88, R^2=0.6435
+  seed=123: RMSE=96,038.55, R^2=0.6818
+  seed=456: RMSE=94,039.22, R^2=0.6949
+  seed=789: RMSE=94,167.29, R^2=0.6941
+  seed=2024: RMSE=94,790.62, R^2=0.6900
+
+--- Baseline multi-seed evaluation ---
+  seed=42: RMSE=94,210.04, R^2=0.6938
+  seed=123: RMSE=96,556.23, R^2=0.6784
+  seed=456: RMSE=98,742.52, R^2=0.6637
+  seed=789: RMSE=94,458.62, R^2=0.6922
+  seed=2024: RMSE=92,986.04, R^2=0.7017
+
+======================================================================
+A3 Results Summary
+======================================================================
+Model                             RMSE (mean +/- std)     R^2 (mean +/- std)
+--------------------------------------------------------------------------------
+Baseline                        95,390.69 +/- 2,271.47     0.6860 +/- 0.0150  
+Wide-and-Deep (lam=1)           96,137.91 +/- 3,183.51     0.6809 +/- 0.0215  
+Saved outputs/A3/a3_comparison.png
+Saved outputs/A3/a3_wd_rmse_curves.png

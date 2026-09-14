@@ -10,8 +10,9 @@ solutions/
 *.pdf
 *.ipynb
 .venv/
-outputs/
+# outputs/
 __pycache__/
 assignment/build/
 ResaleFlatPrices.csv
-*.out
+# *.out
+*.err
