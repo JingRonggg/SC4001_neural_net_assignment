@@ -8,7 +8,7 @@ Train baseline + both ablations on combined train+val with 5 seeds.
 Report mean and std of test RMSE and R^2.
 
 Run from the repository root:
-    uv run python src/A2_ablation.py
+    uv run python src/qa2.py
 """
 
 from pathlib import Path

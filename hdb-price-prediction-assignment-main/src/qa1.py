@@ -10,7 +10,7 @@ Question A1: Hyperparameter Optimisation via Grid Search (Ray Tune)
 - Report final RMSE and R^2.
 
 Run from the repository root:
-    uv run python src/A1_hyperparameter_search.py
+    uv run python src/qa1.py
 """
 
 import copy

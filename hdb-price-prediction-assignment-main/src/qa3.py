@@ -9,7 +9,7 @@ Question A3: Wide-and-Deep Architecture
 - Evaluate on 5 seeds with combined train+val. Report mean/std RMSE and R^2.
 
 Run from the repository root:
-    uv run python src/A3_wide_and_deep.py
+    uv run python src/qa3.py
 """
 
 from pathlib import Path

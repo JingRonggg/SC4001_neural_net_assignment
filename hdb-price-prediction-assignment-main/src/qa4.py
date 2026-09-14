@@ -10,7 +10,7 @@ Question A4: Feature Ablation (Captum)
 - Report top 3 features for each model.
 
 Run from the repository root:
-    uv run python src/A4_feature_ablation.py
+    uv run python src/qa4.py
 """
 
 from pathlib import Path
